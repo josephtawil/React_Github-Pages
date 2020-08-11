@@ -10,10 +10,24 @@ function App() {
     translationList: [],
   });
 
+const editText = (e) =>{
+  setTranslation({...translation, [e.target.name] : e.target.value});
+  console.log(translation);
+}
+
+const submitText = (e) => {
+  e.preventDefault();
+  setTranslation({...translation, translationList: [...translation.translationList, translation.text]});
+}
   return (
     <div className="App">
+      <div className="container">
+      <div className="jumbotron">
+      
       <TranslationList/>
-      <Translationinput/>
+      <Translationinput submitText={submitText} editText={editText}/>
+      </div>
+      </div>
     </div>
   );
 }
