@@ -1,11 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import Translationinput from './components/Translationinput';
+import TranslationList from './components/TranslationList';
 
 function App() {
+
+  const [translation, setTranslation] = useState({
+    text:"", 
+    translationList: [],
+  });
+
   return (
     <div className="App">
-     <h1>Hello World</h1>
+      <TranslationList/>
+      <Translationinput/>
     </div>
   );
 }
